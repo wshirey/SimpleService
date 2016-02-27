@@ -17,8 +17,7 @@ namespace SimpleService
         static void Main(string[] args)
         {
             var appHost = new AppHost();
-            //Allow you to debug your Windows Service while you're deleloping it. 
-#if DEBUG
+
             Console.WriteLine("Running WinServiceAppHost in Console mode");
             try
             {
@@ -39,17 +38,6 @@ namespace SimpleService
             }
 
             Console.WriteLine("WinServiceAppHost has finished");
-
-#else
-            //When in RELEASE mode it will run as a Windows Service with the code below
-
-            ServiceBase[] ServicesToRun;
-            ServicesToRun = new ServiceBase[]
-            {
-                new WinService(appHost, ListeningOn)
-            };
-            ServiceBase.Run(ServicesToRun);
-#endif
 
             Console.ReadLine();
         }
