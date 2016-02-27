@@ -1,2 +1,2 @@
 # SimpleService
-simple service using ServiceStack
+Simple service using ServiceStack
