@@ -1,6 +1,6 @@
 node {
   stage 'Build application'
-  docker('mono').inside {
+  docker.image('mono').inside {
     checkout scm
     sh 'nuget restore'
     sh 'xbuild SimpleService.sln'
