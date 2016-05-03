@@ -1,10 +1,8 @@
 node {
-  stage 'Checkout'
-  checkout scm
-  
-  stage 'Download packages'
-  sh "nuget restore"
-  
-  stage 'Build Project'
-  sh "xbuild SimpleService.sln"
+  stage 'Build application'
+  docker('mono').inside {
+    checkout scm
+    sh 'nuget restore'
+    sh 'xbuild SimpleService.sln'
+  }
 }
