@@ -3,8 +3,8 @@ node {
   checkout scm
   
   stage 'Download packages'
-  nuget restore
+  sh "nuget restore"
   
   stage 'Build Project'
-  xbuild SimpleService.sln
+  sh "xbuild SimpleService.sln"
 }
